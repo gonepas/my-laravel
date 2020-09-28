@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Http\Controllers\VoyagerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/logout', [Controller::class, 'logout'])->name('user_logout');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
