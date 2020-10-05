@@ -17,4 +17,8 @@ class Controller extends BaseController
 
         return redirect()->route('homepage');
     }
+
+    public function printthis($str) {
+        echo $str;
+    }
 }
